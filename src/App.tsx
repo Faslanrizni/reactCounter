@@ -4,9 +4,11 @@
 2. function base component
 * */
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
+import react from "@vitejs/plugin-react";
 
-/*class base component, states management*/
+/*
+/!*class base component, states management*!/
 class Counter extends React.Component<{}, {count:number}>{
     constructor(props:{}) {
         super(props);
@@ -36,6 +38,19 @@ class Counter extends React.Component<{}, {count:number}>{
             </>
         )
     }
+}
+*/
+
+const Counter: React.FC=()=>{
+    /* function base approach, useState*/
+    const[count,setCount] = useState<number>(0);
+    return(
+        <>
+            <p>Counter: {count}</p>
+            <button onClick={()=>setCount(count+1)}>Increment</button> |
+            <button onClick={()=>setCount(count-1)}>Decrement</button>
+        </>
+    )
 }
 
 /*function App() {
